@@ -3,6 +3,7 @@ package com.hmdp.entity;
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.hmdp.dto.UserDTO;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -62,5 +63,13 @@ public class User implements Serializable {
      */
     private LocalDateTime updateTime;
 
+
+    /**
+     * 将 User 类转换为 UserDTO
+     * @return UserDTO
+     */
+    public UserDTO getUserDTO() {
+        return UserDTO.builder().id(id).nickName(nickName).icon(icon).build();
+    }
 
 }
